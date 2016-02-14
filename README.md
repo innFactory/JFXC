@@ -34,7 +34,9 @@ NOT AVAILABLE YET
 
 ##Credits
 ![Jonato IT Solutions][logo]
-Developed by Tobias Jonas (c) [Jonato IT Solutions](https://jonato.de "Jonato IT Solutions - Software Engineering")
+
+Developed by Tobias Jonas 
+(c) [Jonato IT Solutions](https://jonato.de "Jonato IT Solutions - Software Engineering")
 
 
 [logo]: https://jonato.de/sites/all/themes/jonatoDE/logo.png "Jonato IT Solutions logo"
