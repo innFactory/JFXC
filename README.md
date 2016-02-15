@@ -6,6 +6,7 @@ With Jonato JavaFX Controls you can extend your GUI with some new fresh controls
 ## Parts
 1. Keyboard
 2. KeyValueTable
+
 ### Keyboard 
 Minimalistic Keyboard event Framework for all JavaFX KeyUp and Down Events
 
@@ -23,9 +24,12 @@ NOT AVAILABLE YET
 
 ##Changelog
 
-### 0.1 (Planed)
-- Merge with KeyboardFX
+### 0.1-SNAPSHOT
+- Add with KeyboardFX
 - Add KeyValueTable
+- Add TimeTextField
+- Add NumberTextField
+- Add FilterComboBox
 
 ### 0.0
 - Inital Commit
