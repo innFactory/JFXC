@@ -1,4 +1,4 @@
-package de.jonato.jfxc.test.controls.textfield;
+package de.jonato.jfxc.controls.textfield;
 
 /*
  * #%L

@@ -1,4 +1,4 @@
-package de.jonato.jfxc.test.controls.table;
+package de.jonato.jfxc.controls.table;
 
 /*
  * #%L
