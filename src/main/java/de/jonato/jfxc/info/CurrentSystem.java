@@ -20,6 +20,9 @@ package de.jonato.jfxc.info;
  * #L%
  */
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Current System infos from system property.
  */
@@ -93,4 +96,44 @@ public class CurrentSystem {
         if(javaHome == null) { javaHome = System.getProperty("java.home"); }
         return javaHome;
     }
+
+    /**
+     * Set a proxy server in java.
+     *
+     * @param host     proxy host
+     * @param port     proxy port
+     * @param user     proxy user
+     * @param password proxy password
+     */
+    public static void setProxy(String host, String port, String user, String password) {
+        System.getProperties().put("http.proxyHost", host);
+        System.getProperties().put("http.proxyPort", port);
+        System.getProperties().put("http.proxyUser", user);
+        System.getProperties().put("http.proxyPassword", password);
+    }
+
+
+    /**
+     * Get a Map with Proxy settings as map.
+     *
+     * @return map contains the keys host|port|user|password from System properties.
+     */
+    public static Map<String, String> getProxy() {
+        Map<String, String> proxy = new HashMap<>();
+        proxy.put("host", System.getProperties().getProperty("http.proxyHost"));
+        proxy.put("port", System.getProperties().getProperty("http.proxyPort"));
+        proxy.put("user", System.getProperties().getProperty("http.proxyUser"));
+        proxy.put("password", System.getProperties().getProperty("http.proxyPassword"));
+        return proxy;
+    }
+
+    /**
+     * Clear Proxy host settings in System property.
+     */
+    public static void removeProxy() {
+        System.clearProperty("http.proxyHost");
+    }
+
+
+
 }

@@ -31,7 +31,7 @@ public class TimeTextFieldFactory
      * @return new instance
      */
     public static HourMinTextField getHourMinuteTextFieldInstance(){
-        return getHourMinuteTextFieldInstance("");
+        return getHourMinuteTextFieldInstance("00:00");
     }
 
 
@@ -49,7 +49,7 @@ public class TimeTextFieldFactory
      * @return new instance
      */
     public static HourMinSecTextField getHourMinuteSecondTextFieldInstance(){
-        return getHourMinuteSecondTextFieldInstance("");
+        return getHourMinuteSecondTextFieldInstance("00:00:00");
     }
 
     /**

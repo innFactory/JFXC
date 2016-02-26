@@ -22,21 +22,34 @@ package de.jonato.jfxc.info;
 
 
 public class Version {
-    public static String VERSION_SPLIT = "\\.";
+    public final static String VERSION_SPLIT = "\\.";
 
     /**
-     * Compare two versions string, splitted by VERSION_SPLIT static var.
+     * Compare two versions string, splitted by VERSION_SPLIT static var. Version 1 is old if -1.
      * @param version1 Version 1
      * @param version2 Version 2
-     * @return -1( version1 < version2), 0 ( version1 = version2), 1 ( version1 > version2)
+     * @return VERSION1 IS OLD when -1
      */
     public static int compareVersions(String version1, String version2) {
-        String[] components1 = version1.split(VERSION_SPLIT);
-        String[] components2 = version2.split(VERSION_SPLIT);
+        return compareVersions(version1, version2, VERSION_SPLIT);
+    }
+
+
+    /**
+     * Compare two versions string, splitted by VERSION_SPLIT static var. Version 1 is old if -1.
+     *
+     * @param version1 Version 1
+     * @param version2 Version 2
+     * @param split    split for version string
+     * @return VERSION1 IS OLD when -1
+     */
+    public static int compareVersions(String version1, String version2, String split) {
+        String[] components1 = version1.split(split);
+        String[] components2 = version2.split(split);
         int length = Math.min(components1.length, components2.length);
-        for(int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++) {
             int result = new Integer(components1[i]).compareTo(Integer.parseInt(components2[i]));
-            if(result != 0) {
+            if (result != 0) {
                 return result;
             }
         }

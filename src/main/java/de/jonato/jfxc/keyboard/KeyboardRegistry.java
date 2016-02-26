@@ -32,8 +32,8 @@ public class KeyboardRegistry {
 
     /**
      * Save a Keyboard Instance to a given name.
-     * @param name
-     * @param keyboard
+     * @param name identifier
+     * @param keyboard keyboard instance
      */
     public static void add(String name, IKeyboard keyboard){
         registry.put(name, keyboard);
@@ -41,8 +41,8 @@ public class KeyboardRegistry {
 
     /**
      * Get a Keyboard Instance by a given name.
-     * @param name
-     * @return
+     * @param name identifier
+     * @return keyboard instance
      */
     public static IKeyboard get(String name){
         if(registry.containsKey(name)){

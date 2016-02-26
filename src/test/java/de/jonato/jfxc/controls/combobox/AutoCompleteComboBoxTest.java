@@ -29,36 +29,35 @@ import org.testfx.framework.junit.ApplicationTest;
 
 import static org.junit.Assert.assertTrue;
 
+public class AutoCompleteComboBoxTest extends ApplicationTest {
 
-public class FilterComboBoxTest extends ApplicationTest {
-
-    private FilterComboBox<String> filterComboBox;
+    private AutoCompleteComboBox<String> autoCompleteComboBox;
     private String[] data = {"Tobias", "Jonas", "UNIT", "Test", "IN", "FX"};
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        filterComboBox = new FilterComboBox<>(FXCollections.observableArrayList(data));
-        filterComboBox.setId("filterCbo");
+        autoCompleteComboBox = new AutoCompleteComboBox<>(FXCollections.observableArrayList(data));
+        autoCompleteComboBox.setId("autocplCbo");
 
-        Scene scene = new Scene(filterComboBox, 300, 200);
+        Scene scene = new Scene(autoCompleteComboBox, 300, 200);
         stage.setScene(scene);
         stage.show();
     }
 
     @Test
-    public void testFindKey() throws Exception {
-        clickOn(filterComboBox);
-        push(KeyCode.J);
+    public void testFindEnter() throws Exception {
+        clickOn(autoCompleteComboBox);
+        write("Tob").push(KeyCode.ENTER);
 
-        assertTrue(filterComboBox.getSelectionModel().getSelectedItem().equals("Jonas"));
+        assertTrue(autoCompleteComboBox.getSelectionModel().getSelectedItem().equals("Tobias"));
     }
 
     @Test
-    public void testFindAlternativeKey() throws Exception {
-        clickOn(filterComboBox);
-        type(KeyCode.T, 2);
+    public void testFindWithTab() throws Exception {
+        clickOn(autoCompleteComboBox);
+        write("UN").push(KeyCode.TAB);
 
-        assertTrue(filterComboBox.getSelectionModel().getSelectedItem().equals("Test"));
+        assertTrue(autoCompleteComboBox.getSelectionModel().getSelectedItem().equals("UNIT"));
     }
 }

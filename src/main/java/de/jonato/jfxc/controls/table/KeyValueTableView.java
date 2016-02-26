@@ -130,7 +130,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
 
     /**
      * set a list of invisible keys.
-     * @param skippedKeys
+     * @param skippedKeys filter skipped keys
      */
     public void setSkippedKeys(ObservableList<K> skippedKeys) {
         this.skippedKeys = skippedKeys;
@@ -139,7 +139,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
 
     /**
      * set pref width for value column.
-     * @param valuePrefWidth
+     * @param valuePrefWidth pref width
      */
     public void setValuePrefWidth(Double valuePrefWidth) {
         this.valuePrefWidth = valuePrefWidth;
@@ -153,7 +153,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
 
     /**
      * set pref width for key column.
-     * @param keyPrefWidth
+     * @param keyPrefWidth pref width
      */
     public void setKeyPrefWidth(Double keyPrefWidth) {
         this.keyPrefWidth = keyPrefWidth;
@@ -167,7 +167,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
 
     /**
      * set min width of value column.
-     * @param valueMinWidth
+     * @param valueMinWidth min width
      */
     public void setValueMinWidth(Double valueMinWidth) {
         this.valueMinWidth = valuePrefWidth;
@@ -181,7 +181,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
 
     /**
      * set min width of key column.
-     * @param keyMinWidth
+     * @param keyMinWidth min width
      */
     public void setKeyMinWidth(Double keyMinWidth) {
         this.keyMinWidth = keyPrefWidth;
@@ -195,7 +195,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
 
     /**
      * set max width of key column.
-     * @param keyMaxWidth
+     * @param keyMaxWidth max width
      */
     public void setKeyMaxWidth(Double keyMaxWidth) {
         this.keyMaxWidth = keyMaxWidth;
@@ -209,7 +209,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
 
     /**
      * Set max width of value column.
-     * @param valueMaxWidth
+     * @param valueMaxWidth max width
      */
     public void setValueMaxWidth(Double valueMaxWidth) {
         this.valueMaxWidth = valueMaxWidth;
@@ -245,8 +245,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
 
     private void setResizePolicy() {
         if(valueMaxWidth == null || keyMaxWidth == null
-                || valuePrefWidth == null || keyPrefWidth == null
-                || valuePrefWidth == null || keyPrefWidth == null
+                || valueMinWidth == null || keyMinWidth == null
                 ){
             this.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         }else {

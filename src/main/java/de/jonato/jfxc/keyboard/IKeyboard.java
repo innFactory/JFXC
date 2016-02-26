@@ -29,40 +29,40 @@ public interface IKeyboard {
      * @param keyStroke Keys for listening
      * @param keyboardCallback Fired Event
      */
-    public void addKeyStroke(KeyStroke keyStroke, KeyboardCallback keyboardCallback);
+    void addKeyStroke(KeyStroke keyStroke, KeyboardCallback keyboardCallback);
 
     /**
      * Remove a event from a Key oder KeyStroke.
      * @param keyStroke Effected Keys
      * @param keyboardCallback Effected events
      */
-    public void removeKeyStrokeCall(KeyStroke keyStroke, KeyboardCallback keyboardCallback);
+    void removeKeyStrokeCall(KeyStroke keyStroke, KeyboardCallback keyboardCallback);
 
     /**
      * Remove all actions from a KeyStroke.
      * @param keyStroke Effected Keys
      */
-    public void removeKeyStroke(KeyStroke keyStroke);
+    void removeKeyStroke(KeyStroke keyStroke);
 
     /**
      * Route a KeyCombination to a KeyboardCallback event.
      * @param keyCombination Keys for listening
      * @param combinationCallback Fired Event
      */
-    public void addKeyCombination(KeyCombination keyCombination, CombinationCallback combinationCallback);
+    void addKeyCombination(KeyCombination keyCombination, CombinationCallback combinationCallback);
 
     /**
      * Remove a event from a KeyCombination.
      * @param keyCombination Effected Keys
      * @param combinationCallback Effected events
      */
-    public void removeKeyCombinationCall(KeyCombination keyCombination, CombinationCallback combinationCallback);
+    void removeKeyCombinationCall(KeyCombination keyCombination, CombinationCallback combinationCallback);
 
     /**
      * Remove all actions from a Combination.
      * @param keyCombination Effected Combination
      */
-    public void removeKeyCombination(KeyCombination keyCombination);
+    void removeKeyCombination(KeyCombination keyCombination);
 
 
 

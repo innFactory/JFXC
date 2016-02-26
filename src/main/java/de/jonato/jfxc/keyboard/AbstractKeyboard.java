@@ -38,8 +38,8 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * Bind a KeyCombination to a callback function.
-     * @param keyCombination
-     * @param combinationCallback
+     * @param keyCombination keyCombination
+     * @param combinationCallback callback
      */
     protected void putCombination(KeyCombination keyCombination, CombinationCallback combinationCallback){
         synchronized (combinations){
@@ -54,8 +54,8 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * Bind a KeyStroke to a callback function.
-     * @param keyStroke
-     * @param keyboardCallback
+     * @param keyStroke keyStroke
+     * @param keyboardCallback callback
      */
     protected void putAction(KeyStroke keyStroke, KeyboardCallback keyboardCallback){
         synchronized (actions) {
@@ -70,7 +70,7 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * Clean combinations
-     * @param keyCombination
+     * @param keyCombination keyCombination
      */
     protected void removeAllCombinations(KeyCombination keyCombination){
         synchronized (combinations){
@@ -82,7 +82,7 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * clean keystrokes.
-     * @param keyStroke
+     * @param keyStroke keyStroke
      */
     protected void removeAllActions(KeyStroke keyStroke){
         synchronized (actions) {
@@ -94,8 +94,8 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * remove a single combination.
-     * @param keyCombination
-     * @param combinationCallback
+     * @param keyCombination keyCombination
+     * @param combinationCallback callback
      */
     protected  void removeCombination(KeyCombination keyCombination, CombinationCallback combinationCallback){
         synchronized (combinations){
@@ -109,8 +109,8 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * remove a single action.
-     * @param keyStroke
-     * @param keyboardCallback
+     * @param keyStroke keyStroke
+     * @param keyboardCallback callback
      */
     protected void removeAction(KeyStroke keyStroke, KeyboardCallback keyboardCallback){
         synchronized (actions) {
@@ -124,7 +124,7 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * Get the current pressed keystroke.
-     * @return
+     * @return current keyStroke
      */
     public KeyStroke getCurrentKeyStroke() {
         return currentKeyStroke;
@@ -132,7 +132,7 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * Set the current pressed keys.
-     * @param currentKeyStroke
+     * @param currentKeyStroke currentKeyStroke
      */
     public void setCurrentKeyStroke(KeyStroke currentKeyStroke) {
         this.currentKeyStroke = currentKeyStroke;
@@ -140,7 +140,7 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * KeyDown Listener for a node or scene.
-     * @param keyEvent
+     * @param keyEvent keyEvent
      */
     public void setKeyDownEvent(KeyEvent keyEvent) {
 
@@ -173,8 +173,6 @@ public abstract class AbstractKeyboard implements IKeyboard {
                 currentKeyStroke.removeKey(KeyCode.WINDOWS);
             }
 
-            currentKeyStroke.getKeyStrokes().forEach(kc -> System.out.print(kc.getName() + ", "));
-            System.out.println("");
             synchronized (actions) {
                 if (actions.containsKey(currentKeyStroke)) {
                     synchronized (actions.get(currentKeyStroke)) {
@@ -199,7 +197,7 @@ public abstract class AbstractKeyboard implements IKeyboard {
 
     /**
      * Key Up Listener for a node or scene.
-     * @param keyEvent
+     * @param keyEvent keyEvent
      */
     public void setKeyUpEvent(KeyEvent keyEvent){
         synchronized (currentKeyStroke) {

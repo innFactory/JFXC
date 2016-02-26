@@ -42,7 +42,8 @@ public class TypedTextField extends TextField {
 
     /**
      * Create a Textfield with a validator.
-     * @param value Initial value
+     *
+     * @param value              Initial value
      * @param textFieldValidator Validator
      */
     public TypedTextField(String value, TextFieldValidator textFieldValidator) {
@@ -62,6 +63,17 @@ public class TypedTextField extends TextField {
                 }
             }
         });
+
+        focusedProperty().addListener((ob, ov, nv) -> {
+            if (nv == false) {
+                try {
+                    validator.validateHard(getText());
+                } catch (Exception e) {
+                    setText(validator.defaultValue());
+                }
+            }
+
+        });
     }
 
 
@@ -71,7 +83,8 @@ public class TypedTextField extends TextField {
 
     /**
      * Set a Validator.
-     * @param validator
+     *
+     * @param validator validator for the textfield.
      */
     public void setValidator(TextFieldValidator validator) {
         this.validator = validator;

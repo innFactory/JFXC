@@ -20,17 +20,11 @@ package de.jonato.jfxc.samples;
  * #L%
  */
 
-import de.jonato.jfxc.controls.combobox.FilterComboBox;
-import de.jonato.jfxc.controls.textfield.HourMinSecTextField;
-import de.jonato.jfxc.controls.textfield.HourMinTextField;
-import de.jonato.jfxc.controls.textfield.TextFieldValidator;
-import de.jonato.jfxc.controls.textfield.TypedTextField;
 import de.jonato.jfxc.info.OS;
 import de.jonato.jfxc.keyboard.IKeyboard;
 import de.jonato.jfxc.keyboard.KeyStroke;
 import de.jonato.jfxc.keyboard.KeyboardFactory;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;

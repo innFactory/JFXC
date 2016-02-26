@@ -20,12 +20,9 @@ package de.jonato.jfxc.controls.textfield;
  * #L%
  */
 
-import javafx.beans.binding.IntegerBinding;
 import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.SimpleLongProperty;
-import javafx.scene.control.IndexRange;
-import javafx.scene.control.TextField;
 
 import java.util.regex.Pattern;
 
@@ -66,6 +63,21 @@ public class HourMinSecTextField extends TimeTextField {
         return seconds.get();
     }
 
+    public ReadOnlyIntegerProperty hoursProperty() {
+        return hours.getReadOnlyProperty();
+    }
+
+    public int getHours() {
+        return hours.get();
+    }
+
+    public ReadOnlyIntegerProperty minutesProperty() {
+        return minutes.getReadOnlyProperty();
+    }
+
+    public int getMinutes() {
+        return minutes.get();
+    }
 
     protected boolean validate(String time) {
         if (!timePattern.matcher(time).matches()) {

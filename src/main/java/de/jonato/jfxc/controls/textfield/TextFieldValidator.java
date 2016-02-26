@@ -22,6 +22,7 @@ package de.jonato.jfxc.controls.textfield;
 
 
 import java.math.BigInteger;
+import java.util.regex.Pattern;
 
 /**
  * Validator for TextFields
@@ -34,8 +35,7 @@ public enum TextFieldValidator {
     FLOAT(Float.class),
     STRING(String.class),
     BOOLEAN(Boolean.class),
-    BIG_INT(BigInteger.class)
-    ;
+    BIG_INT(BigInteger.class),;
 
     private Class<?> clazz;
 
@@ -43,17 +43,56 @@ public enum TextFieldValidator {
         this.clazz = clazz;
     }
 
+    private int countChar(String input, char Chat) {
+        int i = 0;
+        for (char c : input.toCharArray()) {
+            if (c == Chat)
+                i++;
+        }
+        return i;
+    }
+
+    /**
+     * Validate a String with valueOf or a pattern.
+     *
+     * @param value given value to validate
+     * @return return the new value
+     * @throws Exception Invalid if an Exception is thrown.
+     */
+    public String validate(String value) throws Exception {
+
+
+        if (clazz.equals(Long.class)) {
+            value = Long.valueOf(value).toString();
+        } else if (clazz.equals(Integer.class)) {
+            value = Integer.valueOf(value).toString();
+        } else if (clazz.equals(Float.class)) {
+            Pattern p = Pattern.compile("[0-9]*\\.?[0-9]+");
+            if (!p.matcher(value).matches() && !value.endsWith(".") || countChar(value, '.') > 1) {
+                throw new Exception("not a number");
+            }
+        } else if (clazz.equals(Double.class)) {
+            Pattern p = Pattern.compile("[0-9]*\\.?[0-9]+");
+            if (!p.matcher(value).matches() && !value.endsWith(".") || countChar(value, '.') > 1) {
+                throw new Exception("not a number");
+            }
+        } else if (clazz.equals(Boolean.class)) {
+            value = Boolean.valueOf(value).toString();
+        } else if (clazz.equals(BigInteger.class)) {
+            value = new BigInteger(value).toString();
+        }
+
+        return value;
+    }
 
     /**
      * Validate a String with valueOf. Invalid if an Exception is thrown.
-     * @param value
-     * @return
-     * @throws IllegalAccessException
-     * @throws InstantiationException
+     *
+     * @param value given value to validate
+     * @return return the new value
+     * @throws Exception Invalid if an Exception is thrown.
      */
-    public String validate(String value) throws IllegalAccessException, InstantiationException {
-
-
+    public String validateHard(String value) throws Exception {
         if (clazz.equals(Long.class)) {
             value = Long.valueOf(value).toString();
         } else if (clazz.equals(Integer.class)) {
@@ -66,6 +105,26 @@ public enum TextFieldValidator {
             value = Boolean.valueOf(value).toString();
         } else if (clazz.equals(BigInteger.class)) {
             value = new BigInteger(value).toString();
+        }
+
+        return value;
+    }
+
+    public String defaultValue() {
+        String value = "";
+
+        if (clazz.equals(Long.class)) {
+            value = "0";
+        } else if (clazz.equals(Integer.class)) {
+            value = "0";
+        } else if (clazz.equals(Float.class)) {
+            value = "0.0";
+        } else if (clazz.equals(Double.class)) {
+            value = "0.0";
+        } else if (clazz.equals(Boolean.class)) {
+            value = "false";
+        } else if (clazz.equals(BigInteger.class)) {
+            value = "0";
         }
 
         return value;

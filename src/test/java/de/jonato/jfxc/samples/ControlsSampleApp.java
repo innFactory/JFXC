@@ -20,6 +20,7 @@ package de.jonato.jfxc.samples;
  * #L%
  */
 
+import de.jonato.jfxc.controls.combobox.AutoCompleteComboBox;
 import de.jonato.jfxc.controls.combobox.FilterComboBox;
 import de.jonato.jfxc.controls.textfield.HourMinSecTextField;
 import de.jonato.jfxc.controls.textfield.HourMinTextField;
@@ -57,14 +58,16 @@ public class ControlsSampleApp extends Application {
         /**HourMinTextField**/
         HourMinSecTextField fullTimeTextField = new HourMinSecTextField();
 
-        /**FilterComboBox**/
+        /**FilterComboBox & AutoCompleteComboBox**/
         String[] data =  {"Hallo" , " Welt", "Anfangsbuchstaben", "eines", "Wort", "tippen"};
 
         FilterComboBox<String> filterComboBox = new FilterComboBox<>(FXCollections.observableArrayList(data));
 
+        AutoCompleteComboBox<String> autoCompleteComboBox = new AutoCompleteComboBox<>(FXCollections.observableArrayList(data));
+
 
         Button close = new Button("Close"); close.setOnAction(e -> primaryStage.close());
-        vbox.getChildren().addAll(typedTextField, typedTextField2 ,timeTextField,fullTimeTextField,filterComboBox,close);
+        vbox.getChildren().addAll(typedTextField, typedTextField2, timeTextField, fullTimeTextField, filterComboBox, autoCompleteComboBox, close);
 
         primaryStage.setScene(scene);
         primaryStage.show();

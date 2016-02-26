@@ -65,11 +65,7 @@ public class FilterComboBox<T> extends ComboBox<T> {
                         first = s;
                     }
                     getSelectionModel().select(s);
-                    if (s.equals(last)) {
-                        reset = true;
-                    } else {
-                        reset = false;
-                    }
+                    reset = s.equals(last);
 
                     if (i >= lastKeyPosition) {
                         if (reset) {

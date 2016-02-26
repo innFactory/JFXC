@@ -21,7 +21,6 @@ package de.jonato.jfxc.controls.textfield;
  */
 
 import javafx.beans.binding.IntegerBinding;
-import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.scene.control.IndexRange;
@@ -162,8 +161,8 @@ public abstract class TimeTextField extends TextField {
 
     /**
      * Validate the current string as a time string. e.g HH:mm:ss
-     * @param time
-     * @return
+     * @param time time to validate
+     * @return true if time string valid
      */
     protected abstract boolean validate(String time);
 
