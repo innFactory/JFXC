@@ -29,9 +29,12 @@ import javafx.scene.control.TextField;
 
 import java.util.regex.Pattern;
 
+/**
+ * HH:mm
+ */
 public class HourMinSecTextField extends TimeTextField {
 
-    enum Unit {HOURS, MINUTES, SECONDS};
+    enum Unit {HOURS, MINUTES, SECONDS}
 
     public HourMinSecTextField() {
         this("00:00:00");
@@ -80,10 +83,7 @@ public class HourMinSecTextField extends TimeTextField {
             if (mins < 0 || mins > 59) {
                 return false;
             }
-            if (secs < 0 || secs > 59) {
-                return false;
-            }
-            return true;
+            return !(secs < 0 || secs > 59);
         } catch (NumberFormatException nfe) {
             // regex matching should assure we never reach this catch block
             assert false;

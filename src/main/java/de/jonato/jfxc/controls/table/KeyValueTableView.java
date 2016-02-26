@@ -60,6 +60,14 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
     private TableColumn<Pair<K,V>, String> valueColumn;
 
     //CTRS
+
+    /**
+     * Create a key value table view.
+     * @param items table items.
+     * @param skipKeys invisible keys.
+     * @param keyMaxWidth key max column width.
+     * @param valueMaxWidth value max column width.
+     */
     public KeyValueTableView(ObservableList<Pair<K,V>> items, ObservableList<K> skipKeys, Double keyMaxWidth, Double valueMaxWidth) {
         super(items);
         initTable();
@@ -70,17 +78,37 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
         setValueMaxWidth(valueMaxWidth == null ? Double.MIN_VALUE : valueMaxWidth);
         filterItems();
     }
+    /**
+     * Create a key value table view.
+     * @param items table items.
+     * @param skipKeys invisible keys.
+     */
     public KeyValueTableView(List<Pair<K,V>> items, List<K> skipKeys)
     {
         this(FXCollections.observableArrayList(items), FXCollections.observableArrayList(skipKeys), null, null);
     }
+    /**
+     * Create a key value table view.
+     * @param items table items.
+     * @param skipKeys invisible keys.
+     */
     public KeyValueTableView(ObservableList<Pair<K,V>> items, ObservableList<K> skipKeys)
     {
         this(items, skipKeys, null, null);
     }
+
+    /**
+     * Create a key value table view.
+     * @param items table items.
+     */
     public KeyValueTableView(ObservableList<Pair<K,V>> items){
         this(items, FXCollections.observableArrayList(new ArrayList<K>()), null, null);
     }
+
+    /**
+     * Create a key value table view.
+     * @param items table items.
+     */
     public KeyValueTableView(List<Pair<K,V>> items){
         this(FXCollections.observableArrayList(items), FXCollections.observableArrayList(new ArrayList<K>()), null, null);
     }
@@ -100,11 +128,19 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
     public Double getKeyMinWidth() { return keyMinWidth; }
 
 
+    /**
+     * set a list of invisible keys.
+     * @param skippedKeys
+     */
     public void setSkippedKeys(ObservableList<K> skippedKeys) {
         this.skippedKeys = skippedKeys;
         filterItems();
     }
 
+    /**
+     * set pref width for value column.
+     * @param valuePrefWidth
+     */
     public void setValuePrefWidth(Double valuePrefWidth) {
         this.valuePrefWidth = valuePrefWidth;
         if(valuePrefWidth != Double.MIN_VALUE) {
@@ -115,6 +151,10 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
         setResizePolicy();
     }
 
+    /**
+     * set pref width for key column.
+     * @param keyPrefWidth
+     */
     public void setKeyPrefWidth(Double keyPrefWidth) {
         this.keyPrefWidth = keyPrefWidth;
         if(keyPrefWidth != Double.MIN_VALUE) {
@@ -125,6 +165,10 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
         setResizePolicy();
     }
 
+    /**
+     * set min width of value column.
+     * @param valueMinWidth
+     */
     public void setValueMinWidth(Double valueMinWidth) {
         this.valueMinWidth = valuePrefWidth;
         if(valueMinWidth != Double.MIN_VALUE) {
@@ -135,6 +179,10 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
         setResizePolicy();
     }
 
+    /**
+     * set min width of key column.
+     * @param keyMinWidth
+     */
     public void setKeyMinWidth(Double keyMinWidth) {
         this.keyMinWidth = keyPrefWidth;
         if(keyMinWidth != Double.MIN_VALUE) {
@@ -145,6 +193,10 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
         setResizePolicy();
     }
 
+    /**
+     * set max width of key column.
+     * @param keyMaxWidth
+     */
     public void setKeyMaxWidth(Double keyMaxWidth) {
         this.keyMaxWidth = keyMaxWidth;
         if(keyMaxWidth != Double.MIN_VALUE) {
@@ -155,6 +207,10 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
         setResizePolicy();
     }
 
+    /**
+     * Set max width of value column.
+     * @param valueMaxWidth
+     */
     public void setValueMaxWidth(Double valueMaxWidth) {
         this.valueMaxWidth = valueMaxWidth;
         if(valueMaxWidth != Double.MIN_VALUE) {
@@ -173,6 +229,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
 
     /**
      * Could bound to ObservableList to rerender cells.
+     * Renders the items of the list and skips the skippedKeys.
      */
     public void renderItems(){
         filterItems();
@@ -185,7 +242,6 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
             setItems(allItems.filtered(filter -> skippedKeys.contains(filter.getKey())));
         }
     }
-
 
     private void setResizePolicy() {
         if(valueMaxWidth == null || keyMaxWidth == null

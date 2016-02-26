@@ -24,5 +24,10 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 
 public interface KeyboardCallback {
+    /**
+     * Run a callback event when the given KeyStroke is triggered.
+     * @param keyStroke KeyStroke.
+     * @param keyEvent Called Event.
+     */
     void keyboardAction(KeyStroke keyStroke, KeyEvent keyEvent);
 }

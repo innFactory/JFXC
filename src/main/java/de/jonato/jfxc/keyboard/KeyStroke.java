@@ -24,9 +24,12 @@ import javafx.scene.input.KeyCode;
 
 import java.util.HashSet;
 
+/**
+ * Stores a Combination of KeyCodes.
+ */
 public class KeyStroke {
 
-    HashSet<KeyCode> keyStrokes;
+    private HashSet<KeyCode> keyStrokes;
 
     public KeyStroke(){
         keyStrokes = new HashSet<>();
@@ -89,9 +92,8 @@ public class KeyStroke {
 
         KeyStroke keyStroke = (KeyStroke) o;
 
-        if (keyStrokes != null ? !keyStrokes.equals(keyStroke.keyStrokes) : keyStroke.keyStrokes != null) return false;
+        return keyStrokes != null ? keyStrokes.equals(keyStroke.keyStrokes) : keyStroke.keyStrokes == null;
 
-        return true;
     }
 
     @Override

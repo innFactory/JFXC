@@ -23,14 +23,27 @@ package de.jonato.jfxc.keyboard;
 
 import java.util.HashMap;
 
+/**
+ * Save a Keyboard in a central registry.
+ */
 public class KeyboardRegistry {
 
     private static HashMap<String, IKeyboard> registry = new HashMap<>();
 
+    /**
+     * Save a Keyboard Instance to a given name.
+     * @param name
+     * @param keyboard
+     */
     public static void add(String name, IKeyboard keyboard){
         registry.put(name, keyboard);
     }
 
+    /**
+     * Get a Keyboard Instance by a given name.
+     * @param name
+     * @return
+     */
     public static IKeyboard get(String name){
         if(registry.containsKey(name)){
             return registry.get(name);

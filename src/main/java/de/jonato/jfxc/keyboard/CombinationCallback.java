@@ -26,5 +26,10 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 
 public interface CombinationCallback {
+    /**
+     * Run a callback event when the given KeyCombination is triggered.
+     * @param keyCombination KeyCombination.
+     * @param keyEvent Called Event.
+     */
     void keyboardCombination(KeyCombination keyCombination, KeyEvent keyEvent);
 }

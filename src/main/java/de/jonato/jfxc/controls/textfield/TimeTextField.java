@@ -29,6 +29,9 @@ import javafx.scene.control.TextField;
 
 import java.util.regex.Pattern;
 
+/**
+ * Creates a timeformat textfield
+ */
 public abstract class TimeTextField extends TextField {
 
     protected Pattern timePattern;
@@ -156,6 +159,12 @@ public abstract class TimeTextField extends TextField {
         }
     }
 
+
+    /**
+     * Validate the current string as a time string. e.g HH:mm:ss
+     * @param time
+     * @return
+     */
     protected abstract boolean validate(String time);
 
     protected final class TimeUnitBinding<E extends Enum<E>> extends IntegerBinding {

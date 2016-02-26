@@ -31,6 +31,11 @@ public class SceneKeyboard extends AbstractKeyboard {
         this(scene, null);
     }
 
+    /**
+     * Get a new SceneKeyboard.
+     * @param scene Override the key down and key up event of the scene.
+     * @param stage If stage is given the currentKeyStroke will be reseted when focus is lost.
+     */
     public SceneKeyboard(Scene scene, Stage stage) {
         target = scene;
         scene.setOnKeyPressed(key -> setKeyDownEvent(key));

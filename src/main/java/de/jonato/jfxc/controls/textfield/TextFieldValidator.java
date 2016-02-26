@@ -23,6 +23,9 @@ package de.jonato.jfxc.controls.textfield;
 
 import java.math.BigInteger;
 
+/**
+ * Validator for TextFields
+ */
 public enum TextFieldValidator {
 
     LONG(Long.class),
@@ -40,6 +43,14 @@ public enum TextFieldValidator {
         this.clazz = clazz;
     }
 
+
+    /**
+     * Validate a String with valueOf. Invalid if an Exception is thrown.
+     * @param value
+     * @return
+     * @throws IllegalAccessException
+     * @throws InstantiationException
+     */
     public String validate(String value) throws IllegalAccessException, InstantiationException {
 
 

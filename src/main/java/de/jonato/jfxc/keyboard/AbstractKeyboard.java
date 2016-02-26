@@ -20,6 +20,7 @@ package de.jonato.jfxc.keyboard;
  * #L%
  */
 
+import de.jonato.jfxc.info.OS;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
@@ -35,6 +36,11 @@ public abstract class AbstractKeyboard implements IKeyboard {
     protected HashMap<KeyStroke, HashSet<KeyboardCallback>> actions = new HashMap<>();
     protected HashMap<KeyCombination, HashSet<CombinationCallback>> combinations = new HashMap<>();
 
+    /**
+     * Bind a KeyCombination to a callback function.
+     * @param keyCombination
+     * @param combinationCallback
+     */
     protected void putCombination(KeyCombination keyCombination, CombinationCallback combinationCallback){
         synchronized (combinations){
             if(!combinations.containsKey(keyCombination)){
@@ -46,6 +52,11 @@ public abstract class AbstractKeyboard implements IKeyboard {
         }
     }
 
+    /**
+     * Bind a KeyStroke to a callback function.
+     * @param keyStroke
+     * @param keyboardCallback
+     */
     protected void putAction(KeyStroke keyStroke, KeyboardCallback keyboardCallback){
         synchronized (actions) {
             if (!actions.containsKey(keyStroke)) {
@@ -57,6 +68,10 @@ public abstract class AbstractKeyboard implements IKeyboard {
         }
     }
 
+    /**
+     * Clean combinations
+     * @param keyCombination
+     */
     protected void removeAllCombinations(KeyCombination keyCombination){
         synchronized (combinations){
             if(combinations.containsKey(keyCombination)){
@@ -65,6 +80,10 @@ public abstract class AbstractKeyboard implements IKeyboard {
         }
     }
 
+    /**
+     * clean keystrokes.
+     * @param keyStroke
+     */
     protected void removeAllActions(KeyStroke keyStroke){
         synchronized (actions) {
             if (actions.containsKey(keyStroke)) {
@@ -73,6 +92,11 @@ public abstract class AbstractKeyboard implements IKeyboard {
         }
     }
 
+    /**
+     * remove a single combination.
+     * @param keyCombination
+     * @param combinationCallback
+     */
     protected  void removeCombination(KeyCombination keyCombination, CombinationCallback combinationCallback){
         synchronized (combinations){
             if(combinations.containsKey(keyCombination) && combinations.get(keyCombination).contains(combinationCallback)){
@@ -82,6 +106,12 @@ public abstract class AbstractKeyboard implements IKeyboard {
             }
         }
     }
+
+    /**
+     * remove a single action.
+     * @param keyStroke
+     * @param keyboardCallback
+     */
     protected void removeAction(KeyStroke keyStroke, KeyboardCallback keyboardCallback){
         synchronized (actions) {
             if (actions.containsKey(keyStroke) && actions.get(keyStroke).contains(keyboardCallback)) {
@@ -92,15 +122,28 @@ public abstract class AbstractKeyboard implements IKeyboard {
         }
     }
 
+    /**
+     * Get the current pressed keystroke.
+     * @return
+     */
     public KeyStroke getCurrentKeyStroke() {
         return currentKeyStroke;
     }
 
+    /**
+     * Set the current pressed keys.
+     * @param currentKeyStroke
+     */
     public void setCurrentKeyStroke(KeyStroke currentKeyStroke) {
         this.currentKeyStroke = currentKeyStroke;
     }
 
+    /**
+     * KeyDown Listener for a node or scene.
+     * @param keyEvent
+     */
     public void setKeyDownEvent(KeyEvent keyEvent) {
+
 
         synchronized (currentKeyStroke) {
             currentKeyStroke.addKey(keyEvent.getCode());
@@ -120,15 +163,18 @@ public abstract class AbstractKeyboard implements IKeyboard {
                 currentKeyStroke.removeKey(KeyCode.SHIFT);
             }
             if(keyEvent.isMetaDown()){
-                currentKeyStroke.addKey(KeyCode.META);
+                if(OS.isMacOSX()){
+                    currentKeyStroke.addKey(KeyCode.COMMAND);
+                }else if(OS.isWindows()){
+                    currentKeyStroke.addKey(KeyCode.WINDOWS);
+                }
             }else{
-                currentKeyStroke.removeKey(KeyCode.META);
+                currentKeyStroke.removeKey(KeyCode.COMMAND);
+                currentKeyStroke.removeKey(KeyCode.WINDOWS);
             }
-            if(keyEvent.isShortcutDown()){
-                currentKeyStroke.addKey(KeyCode.SHORTCUT);
-            }else{
-                currentKeyStroke.removeKey(KeyCode.SHORTCUT);
-            }
+
+            currentKeyStroke.getKeyStrokes().forEach(kc -> System.out.print(kc.getName() + ", "));
+            System.out.println("");
             synchronized (actions) {
                 if (actions.containsKey(currentKeyStroke)) {
                     synchronized (actions.get(currentKeyStroke)) {
@@ -136,6 +182,8 @@ public abstract class AbstractKeyboard implements IKeyboard {
                     }
                 }
             }
+
+
 
             synchronized (combinations) {
                 combinations.forEach((keyCombination, keyboardCallbacks) -> {
@@ -149,6 +197,10 @@ public abstract class AbstractKeyboard implements IKeyboard {
         }
     }
 
+    /**
+     * Key Up Listener for a node or scene.
+     * @param keyEvent
+     */
     public void setKeyUpEvent(KeyEvent keyEvent){
         synchronized (currentKeyStroke) {
             if(keyEvent.isAltDown()){
@@ -160,13 +212,17 @@ public abstract class AbstractKeyboard implements IKeyboard {
             if(keyEvent.isShiftDown()){
                 currentKeyStroke.removeKey(KeyCode.SHIFT);
             }
-            if(keyEvent.isMetaDown()){
-                currentKeyStroke.removeKey(KeyCode.META);
-            }
             if(keyEvent.isShortcutDown()){
                 currentKeyStroke.removeKey(KeyCode.SHORTCUT);
             }
             currentKeyStroke.removeKey(keyEvent.getCode());
         }
+    }
+
+    /**
+     * Create a new currentKeyStroke instance.
+     */
+    public void resetKeyStroke(){
+        currentKeyStroke = new KeyStroke();
     }
 }

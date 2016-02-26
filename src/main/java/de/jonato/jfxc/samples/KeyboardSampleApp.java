@@ -25,46 +25,42 @@ import de.jonato.jfxc.controls.textfield.HourMinSecTextField;
 import de.jonato.jfxc.controls.textfield.HourMinTextField;
 import de.jonato.jfxc.controls.textfield.TextFieldValidator;
 import de.jonato.jfxc.controls.textfield.TypedTextField;
+import de.jonato.jfxc.info.OS;
+import de.jonato.jfxc.keyboard.IKeyboard;
+import de.jonato.jfxc.keyboard.KeyStroke;
+import de.jonato.jfxc.keyboard.KeyboardFactory;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
-public class ControlsSampleApp extends Application {
+public class KeyboardSampleApp extends Application {
 
     private VBox vbox;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        System.out.println(OS.isWindows());
+        System.out.println(OS.getOsName());
         vbox = new VBox();
         vbox.setSpacing(15.0);
         Scene scene = new Scene(vbox, 800, 600);
 
-        /**BigIntTextField**/
-        TypedTextField typedTextField = new TypedTextField();
-        typedTextField.setValidator(TextFieldValidator.BIG_INT);
+        TextField textField = new TextField();
+        TextField textField2 = new TextField();
 
-        /**FloatTextField**/
-        TypedTextField typedTextField2 = new TypedTextField();
-        typedTextField2.setValidator(TextFieldValidator.FLOAT);
-
-        /**HourMinTextField**/
-        HourMinTextField timeTextField = new HourMinTextField();
-
-        /**HourMinTextField**/
-        HourMinSecTextField fullTimeTextField = new HourMinSecTextField();
-
-        /**FilterComboBox**/
-        String[] data =  {"Hallo" , " Welt", "Anfangsbuchstaben", "eines", "Wort", "tippen"};
-
-        FilterComboBox<String> filterComboBox = new FilterComboBox<>(FXCollections.observableArrayList(data));
+        IKeyboard iKeyboard = KeyboardFactory.getKeyboardForNode(textField);
+        iKeyboard.addKeyStroke(new KeyStroke(KeyCode.COMMAND), (e,f) -> textField2.setText(e + " - " + f));
+        iKeyboard.addKeyStroke(new KeyStroke(KeyCode.ALPHANUMERIC), (e,f) -> textField2.setText(e + " - " + f));
 
 
         Button close = new Button("Close"); close.setOnAction(e -> primaryStage.close());
-        vbox.getChildren().addAll(typedTextField, typedTextField2 ,timeTextField,fullTimeTextField,filterComboBox,close);
+        vbox.getChildren().addAll(textField,textField2, close);
 
         primaryStage.setScene(scene);
         primaryStage.show();

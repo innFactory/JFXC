@@ -40,6 +40,11 @@ public class TypedTextField extends TextField {
         this(value, TextFieldValidator.STRING);
     }
 
+    /**
+     * Create a Textfield with a validator.
+     * @param value Initial value
+     * @param textFieldValidator Validator
+     */
     public TypedTextField(String value, TextFieldValidator textFieldValidator) {
         super();
         this.validator = textFieldValidator;
@@ -64,6 +69,10 @@ public class TypedTextField extends TextField {
         return validator;
     }
 
+    /**
+     * Set a Validator.
+     * @param validator
+     */
     public void setValidator(TextFieldValidator validator) {
         this.validator = validator;
     }

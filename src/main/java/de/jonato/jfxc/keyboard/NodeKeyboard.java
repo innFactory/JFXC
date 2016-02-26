@@ -26,15 +26,16 @@ import javafx.stage.Stage;
 
 public class NodeKeyboard extends AbstractKeyboard {
     private Node target;
-    private Stage stage;
 
+    /**
+     * Get a new NodeKeyboard.
+     * @param node Override the key down and key up event of the node.
+     */
     public NodeKeyboard(Node node) {
         target = node;
         node.setOnKeyPressed(key -> setKeyDownEvent(key));
         node.setOnKeyReleased(key -> setKeyUpEvent(key));
     }
-
-
 
     @Override
     public void addKeyStroke(KeyStroke keyStroke, KeyboardCallback keyboardCallback) {
