@@ -1,4 +1,6 @@
 # JFXC
+![Build][ci]
+
 Jonato JavaFX Controls - More Power for your JavaFX Gui
 
 With Jonato JavaFX Controls you can extend your GUI with some new fresh controls. 
@@ -75,4 +77,5 @@ Developed by Tobias Jonas
 
 
 [logo]: https://jonato.de/sites/all/themes/jonatoDE/logo.png "Jonato IT Solutions logo"
+[ci]: https://travis-ci.org/Jonato/JFXC.svg?branch=master "CI-Travis"
 
