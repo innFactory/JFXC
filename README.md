@@ -69,12 +69,13 @@ Get quickly infos about the operating system, the current system and the current
 
 ##Changelog
 
-### 1.2 - PLANED
+### 1.2 - SCHEDULED
 - Implement FONT-AWESOME Icon Lib
 
 ### 1.1.1
 - Add Wiki Infos and Tutorials
 - Add Logo
+- Add ipv4 and ipv6 to system info
 
 ### 1.1
 - First release on maven

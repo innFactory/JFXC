@@ -20,6 +20,9 @@ package de.jonato.jfxc.info;
  * #L%
  */
 
+import java.net.Inet4Address;
+import java.net.Inet6Address;
+import java.net.UnknownHostException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -58,6 +61,54 @@ public class CurrentSystem {
     private static String javaVersion;
     private static String fileSeparator;
     private static String javaHome;
+    private static String ipv4;
+    private static String ipv6;
+    private static String hostname;
+
+    /**
+     * Get the hostname of the machine.
+     * @return current hostname.
+     */
+    public static String getHostname(){
+        if(hostname == null) {
+            try {
+                hostname = Inet4Address.getLocalHost().getHostName();
+            } catch (UnknownHostException e) {
+                hostname = "unknown";
+            }
+        }
+        return hostname;
+    }
+
+    /**
+     * Get the ipv4 address of the machine.
+     * @return current lan ip address
+     */
+    public static String getIPv4Adress(){
+        if(ipv4 == null) {
+            try {
+                ipv4 = Inet4Address.getLocalHost().getHostAddress();
+            } catch (UnknownHostException e) {
+                ipv4 = "unknown";
+            }
+        }
+        return ipv4;
+    }
+
+    /**
+     * Get the ipv6 address of the machine.
+     * @return current lan ipv6 address
+     */
+    public static String getIPv6Adress(){
+        if(ipv6 == null) {
+            try {
+                ipv6 = Inet6Address.getLocalHost().getHostAddress();
+            } catch (UnknownHostException e) {
+                ipv6 = "unknown";
+            }
+        }
+        return ipv6;
+    }
 
     /**
      * Get java version from system property.

@@ -52,6 +52,9 @@ public class CurrentSystemTest {
         assertTrue(
                 CurrentSystem.getJavaHome().length() > 0 &&
                         CurrentSystem.getJavaVersion().length() > 0 &&
+                        CurrentSystem.getIPv4Adress().length() > 0 &&
+                        CurrentSystem.getIPv6Adress().length() > 0 &&
+                        CurrentSystem.getHostname().length() > 0 &&
                         CurrentSystem.getSeparator().length() > 0
         );
     }

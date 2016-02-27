@@ -35,6 +35,10 @@ public class InfoGen {
         System.out.println("JAVA Home: " + CurrentSystem.getJavaHome());
         System.out.println("JAVA Version: " + CurrentSystem.getJavaVersion());
 
+        System.out.println("IPv4: " + CurrentSystem.getIPv4Adress());
+        System.out.println("IPv6: " + CurrentSystem.getIPv6Adress());
+        System.out.println("Hostname: " + CurrentSystem.getHostname());
+
         System.out.println("OS: " + OS.getOsName());
         System.out.println("Version: " + OS.getVersion());
 
