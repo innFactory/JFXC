@@ -1,0 +1,16 @@
+language: java
+
+jdk:
+  - oraclejdk8
+## openjdk8 currently does not provide openjfx, so every PR would have to get checked by looking at the oraclejdk-build
+#  - openjdk8
+
+branches:
+  only:
+  - master
+
+notifications:
+  email: false
+
+script:
+  - mvn install -B
