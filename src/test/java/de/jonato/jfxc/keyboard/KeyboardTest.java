@@ -79,33 +79,6 @@ public class KeyboardTest extends ApplicationTest {
             fail();
     }
 
-    @Test
-    public void testCommandE() {
-        IKeyboard keyboard = KeyboardFactory.getKeyboardForScene(scene, stage);
-        pressed = false;
-        keyboard.addKeyStroke(new KeyStroke(KeyCode.COMMAND, KeyCode.E), (e, f) -> pressed = true);
-
-        clickOn(scene);
-
-        push(KeyCode.META, KeyCode.E);
-
-        if (!pressed)
-            fail();
-    }
-
-    @Test
-    public void testCommandF() {
-        IKeyboard keyboard = KeyboardFactory.getKeyboardForScene(scene, stage);
-        pressed = false;
-        keyboard.addKeyStroke(new KeyStroke(KeyCode.COMMAND, KeyCode.F), (e, f) -> pressed = true);
-
-        clickOn(scene);
-
-        push(KeyCode.META, KeyCode.F);
-
-        if (!pressed)
-            fail();
-    }
 
     @Test
     public void test2KeyCodes() {
@@ -124,22 +97,6 @@ public class KeyboardTest extends ApplicationTest {
             fail();
     }
 
-
-    @Test
-    public void testMacWin() {
-        IKeyboard keyboard = KeyboardFactory.getKeyboardForScene(scene, stage);
-        pressed = false;
-        pressed2 = false;
-        keyboard.addKeyStroke(new KeyStroke(KeyCode.WINDOWS, KeyCode.Q), (e, f) -> pressed = true);
-        keyboard.addKeyStroke(new KeyStroke(KeyCode.COMMAND, KeyCode.Q), (e, f) -> pressed2 = true);
-
-        clickOn(scene);
-
-        push(KeyCode.META, KeyCode.Q);
-
-        if (!pressed && !pressed2)
-            fail();
-    }
 
 
 }
