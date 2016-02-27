@@ -62,15 +62,6 @@ public class TypedTextFieldFactory {
     }
 
     /**
-     * Get a TextField for BOOLEAN values. (You Should use a checkbox ;-)
-     * @param value initial value
-     * @return new instance
-     */
-    public static TypedTextField getBooleanTextField(String value){
-        return new TypedTextField(value, TextFieldValidator.BOOLEAN);
-    }
-
-    /**
      * Get a TextField for Big Integer values.
      * @param value initial value
      * @return new instance

@@ -101,4 +101,5 @@ public class TypedTextFieldTest extends ApplicationTest {
                 bigIntTextField.getText().equals("44655")
         );
     }
+
 }

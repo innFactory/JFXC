@@ -23,6 +23,8 @@ package de.jonato.jfxc.keyboard;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.junit.Test;
@@ -61,6 +63,22 @@ public class KeyboardTest extends ApplicationTest {
 
         clickOn(textfield);
         push(KeyCode.ALT, KeyCode.T);
+
+        keyboard.removeKeyStroke(new KeyStroke(KeyCode.ALT, KeyCode.T));
+        if (!pressed)
+            fail();
+    }
+
+    @Test
+    public void testNodeKeyboard2() {
+        IKeyboard keyboard = KeyboardFactory.getKeyboardForNode(textfield);
+        pressed = false;
+        keyboard.addKeyCombination(new KeyCodeCombination(KeyCode.E, KeyCombination.CONTROL_DOWN), (e, f) -> pressed = true);
+
+        clickOn(textfield);
+        push(KeyCode.CONTROL, KeyCode.E);
+
+        keyboard.removeKeyCombination(new KeyCodeCombination(KeyCode.E, KeyCombination.CONTROL_DOWN));
         if (!pressed)
             fail();
     }
@@ -74,7 +92,7 @@ public class KeyboardTest extends ApplicationTest {
         clickOn(scene);
 
         push(KeyCode.CONTROL, KeyCode.E);
-
+        keyboard.removeKeyStroke(new KeyStroke(KeyCode.CONTROL, KeyCode.E));
         if (!pressed)
             fail();
     }

@@ -58,6 +58,21 @@ public class TimeTextFieldTest extends ApplicationTest {
         );
     }
 
+
+    @Test
+    public void testHMSTextFieldWithDelete() throws Exception {
+        clickOn(timeTextField);
+        type(KeyCode.LEFT, 8);
+        write("123456");
+        type(KeyCode.BACK_SPACE, 4);
+        write("89999");
+        assertTrue(
+                ((HourMinSecTextField) timeTextField).getHours() == 12 &&
+                        ((HourMinSecTextField) timeTextField).getMinutes() == 38 &&
+                        ((HourMinSecTextField) timeTextField).getSeconds() == 9
+        );
+    }
+
     @Test
     public void testHMSTextField2() throws Exception {
         clickOn(timeTextField);

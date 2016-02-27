@@ -46,4 +46,22 @@ public class CurrentSystemTest {
 
         CurrentSystem.removeProxy();
     }
+
+    @Test
+    public void testSystemInfo() {
+        assertTrue(
+                CurrentSystem.getJavaHome().length() > 0 &&
+                        CurrentSystem.getJavaVersion().length() > 0 &&
+                        CurrentSystem.getSeparator().length() > 0
+        );
+    }
+
+    @Test
+    public void testSystemInfoRetry() {
+        assertTrue(
+                CurrentSystem.getJavaHome().length() > 0 &&
+                        CurrentSystem.getJavaVersion().length() > 0 &&
+                        CurrentSystem.getSeparator().length() > 0
+        );
+    }
 }

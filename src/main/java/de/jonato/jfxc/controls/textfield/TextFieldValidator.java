@@ -34,7 +34,6 @@ public enum TextFieldValidator {
     DOUBLE(Double.class),
     FLOAT(Float.class),
     STRING(String.class),
-    BOOLEAN(Boolean.class),
     BIG_INT(BigInteger.class),;
 
     private Class<?> clazz;
@@ -76,8 +75,6 @@ public enum TextFieldValidator {
             if (!p.matcher(value).matches() && !value.endsWith(".") || countChar(value, '.') > 1) {
                 throw new Exception("not a number");
             }
-        } else if (clazz.equals(Boolean.class)) {
-            value = Boolean.valueOf(value).toString();
         } else if (clazz.equals(BigInteger.class)) {
             value = new BigInteger(value).toString();
         }
@@ -121,8 +118,6 @@ public enum TextFieldValidator {
             value = "0.0";
         } else if (clazz.equals(Double.class)) {
             value = "0.0";
-        } else if (clazz.equals(Boolean.class)) {
-            value = "false";
         } else if (clazz.equals(BigInteger.class)) {
             value = "0";
         }

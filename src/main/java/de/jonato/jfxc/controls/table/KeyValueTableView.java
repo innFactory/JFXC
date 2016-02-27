@@ -239,7 +239,7 @@ public class KeyValueTableView<K,V> extends TableView<Pair<K,V>> {
         if(skippedKeys.size() == 0){
             setItems(allItems);
         }else{
-            setItems(allItems.filtered(filter -> skippedKeys.contains(filter.getKey())));
+            setItems(allItems.filtered(filter -> !skippedKeys.contains(filter.getKey())));
         }
     }
 

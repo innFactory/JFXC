@@ -26,11 +26,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-/**
- * Copyright (c) maptra.net
- * Backend JEE Server
- * Created by t.jonas on 26.02.16.
- */
 public class KeyStrokeTest {
 
     private KeyStroke keyStroke;
