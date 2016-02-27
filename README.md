@@ -1,5 +1,7 @@
 # JFXC
-![Build][ci]
+[![travis-ci.org](https://travis-ci.org/Jonato/JFXC.svg?branch=master)](https://travis-ci.org/Jonato/JFXC")
+[![codecov.io](https://codecov.io/github/Jonato/JFXC/coverage.svg?branch=master)](https://codecov.io/github/Jonato/JFXC?branch=master)
+[![shields.io](http://img.shields.io/badge/license-ASF2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 Jonato JavaFX Controls - More Power for your JavaFX Gui
 
@@ -77,5 +79,4 @@ Developed by Tobias Jonas
 
 
 [logo]: https://jonato.de/sites/all/themes/jonatoDE/logo.png "Jonato IT Solutions logo"
-[ci]: https://travis-ci.org/Jonato/JFXC.svg?branch=master "CI-Travis"
 
