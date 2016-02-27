@@ -13,10 +13,14 @@ notifications:
   email: false
 
 script:
-  - mvn install -B
+  - mvn install -B -DskipTests=true -Dgpg.skip=true
 
 before_script:
   - pip install --user codecov
 
 after_success:
   - codecov
+
+  before_install:
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
