@@ -6,7 +6,7 @@
 
     <groupId>de.jonato</groupId>
     <artifactId>jfxc</artifactId>
-    <version>0.2</version>
+    <version>1.1</version>
     <packaging>jar</packaging>
     <name>JFXC</name>
     <description>Jonato JavaFX Controls - More Power for your JavaFX Gui</description>
@@ -16,6 +16,13 @@
         <url>https://jonato.de</url>
     </organization>
     <inceptionYear>2016</inceptionYear>
+
+    <scm>
+        <connection>git@github.com:Jonato/JFXC.git</connection>
+        <developerConnection>git@github.com:Jonato/JFXC.git</developerConnection>
+        <url>http://jfxc.jonato.de</url>
+    </scm>
+
 
     <licenses>
         <license>
@@ -32,6 +39,11 @@
         </developer>
     </developers>
     <dependencies>
+        <dependency>
+            <groupId>uk.org.okapibarcode</groupId>
+            <artifactId>okapibarcode</artifactId>
+            <version>0.1.2</version>
+        </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-all</artifactId>
