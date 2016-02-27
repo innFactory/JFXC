@@ -1,4 +1,7 @@
 # JFXC
+![JFXC by Jonato][jfxcLogo]
+
+
 [![travis-ci.org](https://travis-ci.org/Jonato/JFXC.svg?branch=master)](https://travis-ci.org/Jonato/JFXC)
 [![codecov.io](https://codecov.io/github/Jonato/JFXC/coverage.svg?branch=master)](https://codecov.io/github/Jonato/JFXC?branch=master)
 [![shields.io](http://img.shields.io/badge/license-Apache2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
@@ -7,6 +10,10 @@
 Jonato JavaFX Controls - More Power for your JavaFX Gui
 
 With Jonato JavaFX Controls you can extend your GUI with some new fresh controls. 
+
+Tutorials @ https://github.com/Jonato/JFXC/wiki
+
+Samples @ /test/java/de/jonato/jfxc/samples
 
 ## Parts
 1. Keyboard
@@ -52,7 +59,7 @@ Get quickly infos about the operating system, the current system and the current
 <dependency>
   <groupId>de.jonato</groupId>
   <artifactId>jfxc</artifactId>
-  <version>1.1</version>
+  <version>[LATEST_VERSION]</version>
 </dependency>
 ```
 
@@ -61,6 +68,13 @@ Get quickly infos about the operating system, the current system and the current
 - JavaFX8
 
 ##Changelog
+
+### 1.2 - PLANED
+- Implement FONT-AWESOME Icon Lib
+
+### 1.1.1
+- Add Wiki Infos and Tutorials
+- Add Logo
 
 ### 1.1
 - First release on maven
@@ -94,4 +108,4 @@ Tobias Jonas <info@jonato.de>
 
 
 [logo]: https://jonato.de/sites/all/themes/jonatoDE/logo.png "Jonato IT Solutions logo"
-
+[jfxcLogo]: https://jonato.de/sites/default/files/jfxc_product2.png "JFXC powered by Jonato IT Solutions"

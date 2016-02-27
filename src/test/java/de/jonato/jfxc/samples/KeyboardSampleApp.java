@@ -52,7 +52,6 @@ public class KeyboardSampleApp extends Application {
         iKeyboard.addKeyStroke(new KeyStroke(KeyCode.COMMAND), (e,f) -> textField2.setText(e + " - " + f));
         iKeyboard.addKeyStroke(new KeyStroke(KeyCode.ALPHANUMERIC), (e,f) -> textField2.setText(e + " - " + f));
 
-
         Button close = new Button("Close"); close.setOnAction(e -> primaryStage.close());
         vbox.getChildren().addAll(textField,textField2, close);
 

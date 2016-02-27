@@ -6,7 +6,7 @@
 
     <groupId>de.jonato</groupId>
     <artifactId>jfxc</artifactId>
-    <version>1.1</version>
+    <version>1.1.1</version>
     <packaging>jar</packaging>
     <name>JFXC</name>
     <description>Jonato JavaFX Controls - More Power for your JavaFX Gui</description>
