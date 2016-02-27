@@ -1,7 +1,7 @@
 # JFXC
-image:https://travis-ci.org/Jonato/JFXC.svg?branch=master["Travis-CI", link="https://travis-ci.org/Jonato/JFXC"]
+[![travis-ci.org](https://travis-ci.org/Jonato/JFXC.svg?branch=master)](https://travis-ci.org/Jonato/JFXC")
 [![codecov.io](https://codecov.io/github/Jonato/JFXC/coverage.svg?branch=master)](https://codecov.io/github/Jonato/JFXC?branch=master)
-image:http://img.shields.io/badge/license-ASF2-blue.svg["Apache License 2", link="http://www.apache.org/licenses/LICENSE-2.0.txt"]
+[![shields.io](http://img.shields.io/badge/license-ASF2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 
 Jonato JavaFX Controls - More Power for your JavaFX Gui
 
