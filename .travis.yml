@@ -13,11 +13,10 @@ notifications:
   email: false
 
 script:
-  - mvn install -B -DskipTests=true -Dgpg.skip=true
+  - mvn install -B
 
 before_script:
   - pip install --user codecov
 
 after_success:
   - codecov
-  - bash <(curl -s https://codecov.io/bash)
