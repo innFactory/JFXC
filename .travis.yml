@@ -15,5 +15,8 @@ notifications:
 script:
   - mvn install -B -DskipTests=true -Dgpg.skip=true
 
+before_script:
+  - pip install --user codecov
+
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - codecov
