@@ -13,4 +13,4 @@ notifications:
   email: false
 
 script:
-  - mvn install -B
+  - mvn install -B -DskipTests=true -Dgpg.skip=true
