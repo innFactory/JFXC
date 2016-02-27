@@ -13,7 +13,7 @@ notifications:
   email: false
 
 script:
-  - mvn install -B -DskipTests=true -Dgpg.skip=true
+  - mvn install -B -Dgpg.skip=true
 
 before_script:
   - pip install --user codecov
