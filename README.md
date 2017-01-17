@@ -104,9 +104,9 @@ Get quickly infos about the operating system, the current system and the current
 ##Credits
 ![Jonato IT Solutions][logo]
 
-Tobias Jonas <info@jonato.de>
-(c) [Jonato IT Solutions](https://jonato.de "Jonato IT Solutions - Software Engineering")
+[Tobias Jonas](https://jonato.de "Tobias Jonas") <info@jonato.de> 
+(c) [innFactory](https://innFactory.de "innFactory - Cloud-native Engineering")
 
 
-[logo]: https://jonato.de/sites/all/themes/jonatoDE/logo.png "Jonato IT Solutions logo"
-[jfxcLogo]: https://jonato.de/sites/default/files/jfxc_product2.png "JFXC powered by Jonato IT Solutions"
+[logo]: https://innfactory.de/images/logos/innFactory1x.png "innFactory Logo"
+[jfxcLogo]: http://v1.jonato.de/sites/default/files/jfxc_product2.png "JFXC powered by innFactory"
