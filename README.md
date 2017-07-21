@@ -2,8 +2,8 @@
 ![JFXC by Jonato][jfxcLogo]
 
 
-[![travis-ci.org](https://travis-ci.org/Jonato/JFXC.svg?branch=master)](https://travis-ci.org/Jonato/JFXC)
-[![codecov.io](https://codecov.io/github/Jonato/JFXC/coverage.svg?branch=master)](https://codecov.io/github/Jonato/JFXC?branch=master)
+[![travis-ci.org](https://travis-ci.org/innFactory/JFXC.svg?branch=master)](https://travis-ci.org/innFactory/JFXC)
+[![codecov.io](https://codecov.io/github/innFactory/JFXC/coverage.svg?branch=master)](https://codecov.io/github/innFactory/JFXC?branch=master)
 [![shields.io](http://img.shields.io/badge/license-Apache2-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.txt)
 [![jonato.de](https://img.shields.io/badge/Version-1.1-brightgreen.svg)](https://jonato.de)
 
@@ -68,9 +68,6 @@ Get quickly infos about the operating system, the current system and the current
 - JavaFX8
 
 ##Changelog
-
-### 1.2 - SCHEDULED
-- Implement FONT-AWESOME Icon Lib
 
 ### 1.1.1
 - Add Wiki Infos and Tutorials
