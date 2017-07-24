@@ -54,7 +54,7 @@ Get quickly infos about the operating system, the current system and the current
 ```
 
 
-##Maven
+## Maven
 ```
 <dependency>
   <groupId>de.jonato</groupId>
@@ -63,11 +63,11 @@ Get quickly infos about the operating system, the current system and the current
 </dependency>
 ```
 
-##Requirements
+## Requirements
 - Java >= 1.8
 - JavaFX8
 
-##Changelog
+## Changelog
 
 ### 1.1.1
 - Add Wiki Infos and Tutorials
@@ -98,8 +98,8 @@ Get quickly infos about the operating system, the current system and the current
 
 
 
-##Credits
-![Jonato IT Solutions][logo]
+## Credits
+![innFactory JavaFX Entwicklung][logo]
 
 [Tobias Jonas](https://jonato.de "Tobias Jonas") <info@jonato.de> 
 (c) [innFactory](https://innFactory.de "innFactory - Cloud-native Engineering")
